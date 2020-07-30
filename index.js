@@ -1,13 +1,8 @@
 var inquirer = require("inquirer");
+var fs = require("fs");
+var path = require("path");
+var generateMarkdown = require("./utils/generateMarkdown.js");
 
-// array of questions for user
-// WHEN I enter my project title
-// WHEN I enter a description, installation instructions, usage information, contribution guidelines, and test instructions
-// THEN this information is added to the sections of the README entitled Description, Installation, Usage, Contributing, and Tests
-// WHEN I choose a license for my application from a list of options
-// THEN a badge for that license is added hear the top of the README
-// WHEN I enter my GitHub username
-// WHEN I enter my email address
 const questions = [
   {
     type: "input",
@@ -22,6 +17,18 @@ const questions = [
     default: "No description provided.",
   },
   {
+    type: "input",
+    name: "usage",
+    message: "What should users know about using your repo?",
+    default: "No special instructions or guidelines.",
+  },
+  {
+    type: "input",
+    name: "contribution",
+    message: "What should users know about contributing to your repo?",
+    default: "No special instructions or guidelines.",
+  },
+  {
     type: "rawlist",
     name: "license",
     message: "What kind of license should your project have?",
@@ -29,9 +36,15 @@ const questions = [
   },
   {
     type: "input",
-    name: "Description",
+    name: "dependecies",
     message: "What command should be run to install dependencies?",
     default: "npm i",
+  },
+  {
+    type: "input",
+    name: "test",
+    message: "What command should be run to test the app?",
+    default: "npm test",
   },
 ];
 
@@ -45,6 +58,7 @@ function init() {
   console.log("Let's make your README.");
   inquirer.prompt(questions).then((answers) => {
     console.log(answers);
+    writeToFile("README.md", generateMarkdown({ ...answers }));
   });
 }
 
