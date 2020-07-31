@@ -1,3 +1,5 @@
+THIS IS AN EXAMPLE README CREATED WITH ONLY THE DEFAULTS
+
 # Title
 ![GitHub license](https://img.shields.io/badge/license-GPL3.0-green.png)
 
