@@ -24,6 +24,12 @@ const questions = [
   },
   {
     type: "input",
+    name: "credits",
+    message: "Please give credit to anyone or anything that deserves it.",
+    default: "No credits are necessary.",
+  },
+  {
+    type: "input",
     name: "contribution",
     message: "What should users know about contributing to your repo?",
     default: "No special instructions or guidelines.",
@@ -36,7 +42,7 @@ const questions = [
   },
   {
     type: "input",
-    name: "dependecies",
+    name: "dependencies",
     message: "What command should be run to install dependencies?",
     default: "npm i",
   },
@@ -45,6 +51,18 @@ const questions = [
     name: "test",
     message: "What command should be run to test the app?",
     default: "npm test",
+  },
+  {
+    type: "input",
+    name: "github",
+    message: "Enter your GitHub username.",
+    default: "username",
+  },
+  {
+    type: "input",
+    name: "email",
+    message: "Enter an email at which users can reach you.",
+    default: "email@none",
   },
 ];
 
